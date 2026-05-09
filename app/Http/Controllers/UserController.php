@@ -9,10 +9,12 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+public function index()
+{
+    $users = \App\Models\User::latest()->paginate(10);
+
+    return view('users.index', compact('users'));
+}
 
     /**
      * Show the form for creating a new resource.
